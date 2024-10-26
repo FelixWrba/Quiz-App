@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz App - Create Quiz</title>
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+    <header class="header">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#ffffff"
+            onclick="navbar.show()">
+            <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z" />
+        </svg>
+        <p>Quiz App</p>
+        <nav class="header-nav">
+            <a href="/">Play</a>
+            <a href="/create">Create</a>
+            <a href="/account/login">Login</a>
+        </nav>
+    </header>
+    <nav id="mobile-nav">
+        <span>
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#ffffff"
+                onclick="navbar.hide()">
+                <path
+                    d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z" />
+            </svg>
+        </span>
+        <div>
+            <a href="/">Play</a>
+            <a href="/create">Create</a>
+            <a href="/account/login">Login</a>
+        </div>
+    </nav>
+
+    <main>
+        <form action="javascript:" onsubmit="createAccount();" autocomplete="off" class="card">
+            <h2>Create Account</h2>
+            <label for="name">Name:</label>
+            <input type="text" name="name" id="name" required>
+            <label for="email">Email:</label>
+            <input type="email" name="email" id="email" required>
+            <label for="password">Password:</label>
+            <input type="password" name="password" id="password" required>
+            <button type="submit">Login</button>
+            <p>Already have an account? <a href="./login">Login</a></p>
+        </form>
+        <div id="response-div"></div>
+    </main>
+
+    <script>
+        const mobileNav = document.getElementById('mobile-nav');
+        const navbar = {
+            show: () => {
+                mobileNav.style.display = 'block';
+            },
+            hide: () => {
+                mobileNav.style.display = 'none';
+            }
+        }
+
+        async function createAccount() {
+            try {
+                const response = await fetch('/account/new', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        'name': document.getElementById('name').value,
+                        'email': document.getElementById('email').value,
+                        'password': document.getElementById('password').value
+                    })
+                });
+                if (!response.ok) {
+                    document.getElementById('response-div').innerHTML = `Server status: ${response.status}`;
+                }
+                const result = await response.json();
+                document.getElementById('response-div').innerHTML = JSON.stringify(result);
+            } catch (error) {
+                document.getElementById('response-div').innerHTML = `Error: ${error.message}`;
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+==========
+Quiz JSON:
+=========
+title: string,
+desciption: string,
+questions: [
+	{
+		title: string,
+		options: [string, string, string, string],
+		solution: string,
+		time: int
+	},
+	{
+		title: string,
+		options: [string, string, string, string],
+		solution: string,
+		time: int
+	},
+	{
+		title: string,
+		options: [string, string, string, string],
+		solution: string,
+		time: int
+	},
+	{
+		title: string,
+		options: [string, string, string, string],
+		solution: string,
+		time: int
+	}
+]
+
+=========
+Database:
+=========
+Users:
+Id, UserId, Email, Username, Password, AuthToken
+Quizzes;
+Id, QuizId, CreatorId, File, Views
