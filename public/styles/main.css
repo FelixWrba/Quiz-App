@@ -111,6 +111,23 @@ button:active {
     background-color: rgb(0, 176, 0);
 }
 
+/* Main / Footer ------------------------------------------------------------------ */
+main {
+    height: 100vh;
+}
+
+footer {
+    padding: 24px;
+    background-color: rgb(46, 46, 46);
+    color: white;
+    text-align: center;
+}
+
+footer a {
+    color: rgb(173, 173, 173);
+    text-decoration: underline;
+}
+
 /* Login cards -------------------------------------------------------------------- */
 .card {
     box-sizing: border-box;
