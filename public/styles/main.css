@@ -13,10 +13,6 @@ svg {
     cursor: pointer;
 }
 
-h2 {
-    margin-block: 4px;
-}
-
 p {
     margin: 0;
 }
@@ -143,6 +139,11 @@ button:active {
 
 .card button {
     margin: 4px auto;
+}
+
+.card h2, .card p {
+    margin: 4px 0;
+    text-align: center;
 }
 
 /* Respnsive----------------------------------------------------------------------- */

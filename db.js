@@ -1,8 +1,8 @@
 const { Sequelize } = require('sequelize');
 
 // Initialize Sequelize
-const sequelize = new Sequelize('quiz app', 'root', 'abc123', {
-	host: 'localhost',
+const sequelize = new Sequelize('quiz app', process.env.DB_USER, process.env.DB_PASS, {
+	host: process.env.DB_HOST,
 	dialect: 'mysql'
 });
 
