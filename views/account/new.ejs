@@ -85,7 +85,7 @@
                 if (!response.ok) {
                     document.getElementById('response-div').innerHTML = `Server status: ${response.status}`;
                 }
-                const result = await response.json();
+                const result = await response.text();
                 document.getElementById('response-div').innerHTML = JSON.stringify(result);
             } catch (error) {
                 document.getElementById('response-div').innerHTML = `Error: ${error.message}`;
