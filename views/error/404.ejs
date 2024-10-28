@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 Not found</title>
+</head>
+
+<body>
+    <style>
+        div {
+            margin: 24px auto;
+            padding: 12px;
+            text-align: center;
+            font: 14px Arial, Helvetica, sans-serif;
+            background-color: red;
+            border-radius: 4px;
+            width: 400px;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, .3)
+        }
+
+        div,
+        a {
+            color: #fff;
+        }
+
+        @media (max-width:496px) {
+            div {
+                width: auto;
+                margin: 24px
+            }
+        }
+    </style>
+    <div>
+        <h1>404 Not Found</h1>
+        <p>The page <b>
+                <%= path %>
+            </b> was not found on this server. <a href="/">Home</a>
+    </div>
+</body>
+
+</html>

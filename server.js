@@ -26,3 +26,10 @@ app.use('/api', apiRouter);
 
 const accountRouter = require('./routes/account');
 app.use('/account', accountRouter);
+
+// 404 not found
+app.use((req, res) => {
+    res.status(404).render('error/404', {
+        'path': req.path
+    });
+});
